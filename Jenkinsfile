@@ -1,7 +1,7 @@
 pipeline {
    agent any
       environment {
-         PATH='C:\Users\lesba_3nkrzb1\Documents\Proyectos\Banrural Guatemala\apks'
+         PATH=''
       }
       /*
    stages {
