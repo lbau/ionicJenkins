@@ -1,7 +1,8 @@
 pipeline {
    agent any
       environment {
-         PATH='C:\Users\lesba_3nkrzb1\Documents\Proyectos\Banrural Guatemala\apks'
+         //PATH='C:\Users\lesba_3nkrzb1\Documents\Proyectos\Banrural Guatemala\apks'
+        echo "Prueba path"
       }
       /*
    stages {
@@ -13,7 +14,8 @@ pipeline {
     stage('Android Build') {
         steps {
       //sh 'ionic cordova build android --release'
-      sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build android --release'
+      //sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build android --release'
+                echo "Prueba build android"
         }
     }
 /*
