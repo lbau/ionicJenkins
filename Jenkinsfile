@@ -1,4 +1,25 @@
-pipeline {
+node {
+    stage "Create build output"
+    
+    // Make the output directory.
+    sh "mkdir -p output"
+
+    // Write an useful file, which is needed to be archived.
+    writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
+
+    // Write an useless file, which is not needed to be archived.
+    writeFile file: "output/uselessfile.md", text: "This file is useless, no need to archive it."
+
+    stage "Archive build output"
+    
+    // Archive the build output artifacts.
+    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
+}
+
+
+
+
+/*pipeline {
    agent any
       environment {
          //PATH='C:\Users\lesba_3nkrzb1\Documents\Proyectos\Banrural Guatemala\apks'
@@ -10,7 +31,7 @@ pipeline {
       steps {
          sh 'npm install'
       }
-   }*/
+   }
     stage('Android Build') {
         steps {
       //sh 'ionic cordova build android --release'
@@ -61,6 +82,7 @@ pipeline {
     echo "Publish Android API Action"
    }
   }
-   */
+   
  }
 }
+*/
