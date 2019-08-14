@@ -1,15 +1,22 @@
 pipeline {
    agent any
       environment {
-         PATH='/usr/local/bin:/usr/bin:/bin'
+         PATH='C:\Users\lesba_3nkrzb1\Documents\Proyectos\Banrural Guatemala\apks'
       }
+      /*
    stages {
       stage('NPM Setup') {
       steps {
          sh 'npm install'
       }
-   }
-
+   }*/
+    stage('Android Build') {
+        steps {
+      //sh 'ionic cordova build android --release'
+      sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build android --release'
+        }
+    }
+/*
    stage('IOS Build') {
    steps {
       sh 'ionic cordova build ios --release'
@@ -44,6 +51,7 @@ pipeline {
       steps {
        echo "Publish iOS Action"
     }
+    
    }
 
    stage('Publish Android') {
@@ -51,6 +59,6 @@ pipeline {
     echo "Publish Android API Action"
    }
   }
-
+   */
  }
 }
