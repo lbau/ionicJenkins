@@ -24,7 +24,8 @@ pipeline {
 
    stage('APK Sign') {
    steps {
-      sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
+      echo "Datos de tienda"
+      //sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
    }
    }
 
@@ -36,7 +37,7 @@ pipeline {
 
    stage('Publish Firebase Web') {
       steps {
-      sh 'firebase deploy --token "Your Token Key"'
+      sh 'firebase deploy --token "test01"'
    }
   }
 
