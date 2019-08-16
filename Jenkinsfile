@@ -9,24 +9,25 @@ pipeline {
    stages {
       stage('NPM Setup') {
       steps {
-         //sh 'npm install'
-        echo "Prueba npm"
+        sh 'npm install'
+        //echo "Prueba npm"
       }
    }
-/*
+
    stage('IOS Build') {
    steps {
-      sh 'ionic cordova build ios --release'
+      //sh 'ionic cordova build ios --release'
+     sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build ios
      } 
   }
-*/
+/*
    stage('Android Build') {
    steps {
       //sh 'ionic cordova build android --release'
      sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build android --release'
    }
   }
-
+*/
    stage('APK Sign') {
    steps {
       echo "Datos de tienda"
@@ -36,7 +37,8 @@ pipeline {
 
    stage('Stage Web Build') {
       steps {
-        sh 'npm run build --prod'
+        //sh 'npm run build --prod'
+        echo "Web"
     }
   }
 
