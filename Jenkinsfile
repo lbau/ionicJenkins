@@ -31,33 +31,34 @@ pipeline {
 
    stage('APK Sign') {
    steps {
-      echo "Datos de tienda"
+      echo "Datos de tienda solo con los datos funciona, falta probar"
       //sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
    }
    }
 
    stage('Stage Web Build') {
       steps {
-        //sh 'npm run build --prod'
+        sh 'npm run build --prod'
         echo "Web"
     }
   }
 
    stage('Publish Firebase Web') {
       steps {
-      sh 'firebase deploy --token "test01"'
+      //sh 'firebase deploy --token "test01"'
+        echo "Comando firebase not found revisar error"
    }
   }
 
    stage('Publish iOS') {
       steps {
-       echo "Publish iOS Action"
+        echo "Publish iOS Action"
     }
    }
 
    stage('Publish Android') {
      steps {
-    echo "Publish Android API Action"
+        echo "Publish Android API Action"
    }
   }
 
