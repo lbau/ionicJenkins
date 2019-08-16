@@ -2,9 +2,9 @@ pipeline {
    agent any
       environment {
         
-         //PATH='/usr/local/bin:/usr/bin:/bin'
+         PATH='/usr/local/bin:/usr/bin:/bin'
          //PATH='/usr/local/bin:/usr/bin:/bin/ANDROID_HOME'
-         PATH='/Users/Shared/Jenkins/ANDROID_HOME'
+         //PATH='/Users/Shared/Jenkins/ANDROID_HOME'
       }
    stages {
       stage('NPM Setup') {
@@ -13,16 +13,17 @@ pipeline {
         echo "Prueba npm"
       }
    }
-
+/*
    stage('IOS Build') {
    steps {
       sh 'ionic cordova build ios --release'
      } 
   }
-
+*/
    stage('Android Build') {
    steps {
-      sh 'ionic cordova build android --release'
+      //sh 'ionic cordova build android --release'
+     sh 'node --max-old-space-size=8192 ./node_modules/@ionic/app-scripts/bin/ionic-app-scripts.js build --prod && cordova build android --release'
    }
   }
 
