@@ -1,24 +1,24 @@
 pipeline {
    agent any
       environment {
-         PATH=''
+         PATH='/usr/local/bin:/usr/bin:/bin'
       }
    stages {
       stage('NPM Setup') {
       steps {
-         cmd 'npm install'
+         sh 'npm install'
       }
    }
 
    stage('IOS Build') {
    steps {
-      start cmd 'npm install'
+      sh 'ionic cordova build ios --release'
      } 
   }
 
    stage('Android Build') {
    steps {
-      cmd.exe 'npm install'
+      sh 'ionic cordova build android --release'
    }
   }
 
