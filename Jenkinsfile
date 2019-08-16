@@ -1,15 +1,16 @@
 pipeline {
    agent any
       environment {
+        
          //PATH='/usr/local/bin:/usr/bin:/bin'
          //PATH='/usr/local/bin:/usr/bin:/bin/ANDROID_HOME'
-        
          PATH='/Users/Shared/Jenkins/ANDROID_HOME'
       }
    stages {
       stage('NPM Setup') {
       steps {
-         sh 'npm install'
+         //sh 'npm install'
+        echo "Prueba npm"
       }
    }
 
